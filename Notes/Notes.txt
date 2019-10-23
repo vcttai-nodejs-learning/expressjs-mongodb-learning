@@ -64,3 +64,11 @@ Express API: https://expressjs.com/en/4x/api.html#res.send
     + bodyParser.urlencoded là để lấy dữ liệu từ form, còn nhiều mode khác như: bodyParser.json(), bodyParser.text(), ...
     + tham số extended là để chấp nhận các object lồng nhau
 - Sử dụng trong callback của route:
+app.post('/', function(req, res) {
+    const num1 = parseInt(req.body.first_number);
+    const num2 = parseInt(req.body.second_number);
+    //...
+})
+
+141. Solution to the BMI Routing Challenge
+- Làm trang tính BMI tương tự 
