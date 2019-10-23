@@ -3,8 +3,11 @@ const app = express();
 
 //Routing
 app.get('/', function(req, res) {
-    console.log(req);
     res.send("<h1>Hello world!</h1>");
+})
+
+app.get('/about', function(req, res) {
+    res.send("Contact me at: vcttai@gmail.com");
 })
 
 app.listen(3000, () => {
