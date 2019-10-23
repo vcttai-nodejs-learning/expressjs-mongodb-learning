@@ -54,3 +54,13 @@ app.get('/about', function(req, res) {
 138. Calculator Setup Challenge Solution
 139. Responding to Requests with HTML Files
 Express API: https://expressjs.com/en/4x/api.html#res.send
+
+140. Processing Post Requests with Body Parser
+- Xử lí form data với body-parser
+  npm install body-parser 
+- Cấu hình sử dụng body parser để lấy dữ liệu từ form:
+  app.use(bodyParser.urlencoded({extended: true}));
+  Giải thích:
+    + bodyParser.urlencoded là để lấy dữ liệu từ form, còn nhiều mode khác như: bodyParser.json(), bodyParser.text(), ...
+    + tham số extended là để chấp nhận các object lồng nhau
+- Sử dụng trong callback của route:
