@@ -1,0 +1,40 @@
+NodeJS - Express
+Ref: https://bozuman.cybozu.com/g/space/application/todo/view.csp?spid=2382&tdid=9264
+
+128. What is NodeJS
+- Why: it is Javascript
+  -> one language for all (BE & FE)
+
+129. The power of command line and How to use Node
+- Nothing new
+
+130. The Node REPL (Read - Evaluation - Print - Loops)
+- Chạy lệnh: node
+  -> sau đó có thể thực thi mã lệnh node trong đó (tương tự như PHP tinker)
+- Để exit, gõ: .exit
+
+131. How to Use the Native Node Modules
+- Node API & built-in modules: https://nodejs.org/docs/latest-v10.x/api/
+- var, let, const
+- require, export
+
+132. The NPM Package Manager and Installing External Node Modules
+- npm: Node package manager
+- Init a project: npm init
+- Install a package:
+  + Search npm package name & document
+  + npm i <name> --save-dev
+
+134. Create first server with Express
+- npm init
+- Tạo file server.js
+- cài đặt express: npm install express
+- File server đơn giản:
+const express = require('express');
+const app = express();
+
+app.listen(3000, () => {
+    console.log('Start server successfully!');
+});
+
+135. Handling Requests and Responses the GET Request
