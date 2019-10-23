@@ -50,3 +50,7 @@ app.get('/about', function(req, res) {
     res.send("Contact me at: vcttai@gmail.com");
 })
 
+137. What We'll Make A Calculator
+138. Calculator Setup Challenge Solution
+139. Responding to Requests with HTML Files
+Express API: https://expressjs.com/en/4x/api.html#res.send

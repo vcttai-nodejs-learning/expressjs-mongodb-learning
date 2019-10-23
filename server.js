@@ -3,11 +3,7 @@ const app = express();
 
 //Routing
 app.get('/', function(req, res) {
-    res.send("<h1>Hello world!</h1>");
-})
-
-app.get('/about', function(req, res) {
-    res.send("Contact me at: vcttai@gmail.com");
+    res.sendFile(__dirname + '/index.html');
 })
 
 app.listen(3000, () => {
