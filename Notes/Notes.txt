@@ -38,3 +38,9 @@ app.listen(3000, () => {
 });
 
 135. Handling Requests and Responses the GET Request
+- Xử lí thêm request & response trong Express như sau:
+app.get('/', function(req, res) {
+    console.log(req);
+    res.send("<h1>Hello world!</h1>");
+})
+
