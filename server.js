@@ -1,13 +1,29 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
+
+// Setting up
 const app = express();
+app.use(bodyParser.urlencoded({extended: true}));
 
 //Routing
 app.get('/', function(req, res) {
-    res.send("<h1>Hello world!</h1>");
+    res.sendFile(__dirname + "/index.html");
 })
 
-app.get('/about', function(req, res) {
-    res.send("Contact me at: vcttai@gmail.com");
+app.post('/', function(req, res) {
+    const crypto = req.body.crypto;
+    const fiat = req.body.fiat;
+
+    const url = `https://apiv2.bitcoinaverage.com/indices/global/ticker/${crypto}${fiat}`;
+    request(url, function(error, response, body){
+        const data = JSON.parse(body);
+        const price = data.last;
+
+        res.write("<p>The current date is: " + data.display_timestamp + "</p>");
+        res.write(`<h1>The current price of ${crypto} is ${price}${fiat}.</h1>`);
+        res.send();
+    })
 })
 
 app.listen(3000, () => {

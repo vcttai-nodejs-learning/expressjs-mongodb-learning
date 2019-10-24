@@ -50,3 +50,17 @@ app.get('/about', function(req, res) {
     res.send("Contact me at: vcttai@gmail.com");
 })
 
+
+149. What are APIs Application Programming Interfaces Demystified
+- APIs: là tập command, function để giúp hệ thống giao tiếp với bên ngoài
+ 
+150. Using the Request Module to Get Data from an API
+151. Understanding the JSON Format and Working with JSON
+- Để gửi http request từ server tới một external server, có thể dùng package: request
+  npm install request
+- Dùng như sau:
+  request(url, function(error, response, body){});
+- Có thể gửi response nhiều dòng bằng cách dùng res.write()
+res.write("<p>The current date is: " + data.display_timestamp + "</p>");
+res.write(`<h1>The current price of ${crypto} is ${price}${fiat}.</h1>`);
+res.send();
