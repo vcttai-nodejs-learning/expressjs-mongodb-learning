@@ -50,3 +50,9 @@ app.get('/about', function(req, res) {
     res.send("Contact me at: vcttai@gmail.com");
 })
 
+
+154. Setting Up the Newsletter Page
+- Setting static folder trong Express:
+  app.use(express.static(__dirname + "/public"));
+- Khi đó có thể sử dụng files và folder trong thư mục static vừa tạo, vd:
+  <link type="text/css" href="css/signin.css" rel="stylesheet">
