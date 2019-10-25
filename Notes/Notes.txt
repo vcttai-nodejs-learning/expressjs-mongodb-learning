@@ -91,3 +91,10 @@ app.get('/about', function(req, res) {
           productsOrdered: [1, 2]
       }
 
+224. Working with the Native MongoDB Driver
+- Có 2 cách để kết nối tới MongoDB và sử dụng nó trong NodeJS:
+  + Cách 1: dùng native mongodb driver
+  + Cách 2: dùng ODM (object-document-mapper) ví dụ như: Mongoose
+- Cài đặt MongoDB native driver 
+  npm i mongodb
+- Tham khảo cú pháp ở đây: https://mongodb.github.io/node-mongodb-native/3.3/quick-start/quick-start/
