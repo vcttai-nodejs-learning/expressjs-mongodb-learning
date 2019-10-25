@@ -50,3 +50,23 @@ app.get('/about', function(req, res) {
     res.send("Contact me at: vcttai@gmail.com");
 })
 
+
+225. Introduction to Mongoose
+226. Reading from Your Database with Mongoose
+- Mongoose là 1 ODM: https://mongoosejs.com/
+- Flow làm việc với mongoose:
+  + require mongoose
+  + mongoose.connect(db)
+  + create model with mongoose.model()
+  + using model as a ORM object
+  vd:
+  const mongoose = require('mongoose');
+  mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
+
+  const Cat = mongoose.model('Cat', { name: String });
+  const kitty = new Cat({ name: 'Zildjian' });
+  kitty.save().then(() => console.log('meow'));
+- Cài đặt mongoose:
+  npm i mongoose
+- Document:
+  + Model: https://mongoosejs.com/docs/api/model.html
