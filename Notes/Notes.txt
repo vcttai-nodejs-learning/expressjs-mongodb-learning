@@ -50,3 +50,44 @@ app.get('/about', function(req, res) {
     res.send("Contact me at: vcttai@gmail.com");
 })
 
+
+219. MongoDB CRUD Operations
+- Document: https://docs.mongodb.com/manual/crud/
+- Mongo shell để chạy lệnh command của MongoDB, gõ: mongo
+
+223. Relationships in MongoDB
+- Có 2 cách chính:
+  + Embed bên trong 1 đối tượng, vd:
+    db.product.insert({
+        _id: 3,
+        name: "Rubber",
+        price: 1.4,
+        reviews: [
+            {
+                author: "John",
+                rating: 5,
+                review: "Good Robber"
+            },
+            {
+                author: "Wilson",
+                rating: 5,
+                review: "Awesome Robber"
+            }
+        ],
+    })
+  + Tách collections và dùng object reference, vd:
+    Product collection có 2 documents:
+      {
+          _id: 1,
+          name: "Pen"
+      }
+      {
+          _id: 2,
+          name: "Pencil"
+      }
+    Order collection sẽ tham chiếu như sau:
+      {
+          orderNumber: 1234,
+          productsOrdered: [1, 2]
+      }
+
