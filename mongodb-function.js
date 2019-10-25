@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 const insertDocuments = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('fruits');
@@ -17,6 +19,4 @@ const insertDocuments = function(db, callback) {
     });
 }
 
-module.exports = {
-    insertDocuments: insertDocuments
-}
+module.exports = insertDocuments;
