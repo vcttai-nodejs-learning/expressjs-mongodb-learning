@@ -20,15 +20,35 @@ app.get('/create_a_document', function(req, res) {
     
     const Fruit = mongoose.model('Fruit', fruitSchema); //mongoose sẽ tự động dùng "fruits" cho tên của Collection trong DB
     const anApple = new Fruit({
-        name: "Apple",
+        name: "Orange",
         rating: 7,
         review: "Very delicious"
     });
     
-    anApple.save();
+    // Or use: anApple.save();
+    Fruit.insertMany([anApple]);
 
     res.send("Created a fruit");
 })
+
+app.get('/get_documents', function(req, res){
+    const fruitSchema = new mongoose.Schema({
+        name: String,
+        rating: Number,
+        review: String
+    });
+    const Fruit = mongoose.model('Fruit', fruitSchema);
+    
+    Fruit.find(function(err, fruits){
+        if(err){
+            console.log(err);
+            return;
+        }
+
+        mongoose.connection.close();
+        res.send(JSON.stringify(fruits));
+    });
+});
 
 app.listen(3000, () => {
     console.log('Start server successfully!');

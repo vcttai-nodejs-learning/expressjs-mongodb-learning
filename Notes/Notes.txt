@@ -57,7 +57,7 @@ app.get('/about', function(req, res) {
 - Flow làm việc với mongoose:
   + require mongoose
   + mongoose.connect(db)
-  + create model with mongoose.model()
+  + create model with mongoose.model(), hoặc mongoose.model(mongoose.Schema)
   + using model as a ORM object
   vd:
   const mongoose = require('mongoose');
