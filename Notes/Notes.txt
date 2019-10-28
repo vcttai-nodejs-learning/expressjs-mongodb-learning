@@ -70,3 +70,7 @@ app.get('/about', function(req, res) {
   npm i mongoose
 - Document:
   + Model: https://mongoosejs.com/docs/api/model.html
+
+
+227. Data Validation with Mongoose
+- Ref: https://mongoosejs.com/docs/validation.html

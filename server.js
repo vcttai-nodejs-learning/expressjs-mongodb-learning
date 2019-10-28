@@ -13,8 +13,15 @@ app.get('/', function(req, res) {
 
 app.get('/create_a_document', function(req, res) {
     const fruitSchema = new mongoose.Schema({
-        name: String,
-        rating: Number,
+        name: {
+            type: String,
+            required: [true, 'Name is required!']
+        },
+        rating: {
+            type: Number,
+            min: 1,
+            max: 10
+        },
         review: String
     });
     
@@ -26,9 +33,13 @@ app.get('/create_a_document', function(req, res) {
     });
     
     // Or use: anApple.save();
-    Fruit.insertMany([anApple]);
+    Fruit.insertMany([anApple], function(err){
+        if(err){
+            res.send(err);
+        }
 
-    res.send("Created a fruit");
+        res.send("Created a fruit");
+    });
 })
 
 app.get('/get_documents', function(req, res){
