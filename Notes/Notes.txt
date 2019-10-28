@@ -74,3 +74,10 @@ app.get('/about', function(req, res) {
 
 227. Data Validation with Mongoose
 - Ref: https://mongoosejs.com/docs/validation.html
+
+229. Establishing Relationships and Embedding Documents using Mongoose
+- Embed objects vào thuộc tính của object khác để tạo quan hệ
+Ref: 
+  + Embeded Relationships: https://mongoosejs.com/docs/subdocs.html
+  + Reference Relationships: https://stackoverflow.com/questions/34985846/mongoose-document-references-with-a-one-to-many-relationship
+  + 2 ways: https://vegibit.com/mongoose-relationships-tutorial/

@@ -11,7 +11,7 @@ app.get('/', function(req, res) {
     res.send("<h1>Hello world!</h1>");
 })
 
-app.get('/create_a_document', function(req, res) {
+app.get('/create_a_fruit', function(req, res) {
     const fruitSchema = new mongoose.Schema({
         name: {
             type: String,
@@ -42,7 +42,7 @@ app.get('/create_a_document', function(req, res) {
     });
 })
 
-app.get('/get_documents', function(req, res){
+app.get('/get_fruits', function(req, res){
     const fruitSchema = new mongoose.Schema({
         name: String,
         rating: Number,
@@ -59,6 +59,71 @@ app.get('/get_documents', function(req, res){
         mongoose.connection.close();
         res.send(JSON.stringify(fruits));
     });
+});
+
+app.get('/create_a_person', function(req, res){
+    const personSchema = new mongoose.Schema({
+        name: {
+            type: String,
+            required: [true, 'Name is required']
+        },
+        age: {
+            type: Number,
+            min: 0
+        }
+    });
+
+    const personModel = mongoose.model('Person', personSchema);
+    const aPerson = new personModel({
+        name: 'nhlong',
+        age: 25
+    });
+
+    aPerson.save();
+    res.send('Add person successfully!');
+});
+
+app.get('/create_a_person_with_fruits', function(req, res){
+    const fruitSchema = new mongoose.Schema({
+        name: String,
+        rating: Number,
+        review: String
+    });
+    const Fruit = mongoose.model('Fruit', fruitSchema);
+
+    const personSchema = new mongoose.Schema({
+        name: {
+            type: String,
+            required: [true, 'Name is required']
+        },
+        age: {
+            type: Number,
+            min: 0
+        },
+        favouriteFruits: [fruitSchema],
+    });
+    const personModel = mongoose.model('Person', personSchema);
+
+    const aMango = new Fruit({
+        name: 'Mango',
+        rate: 9,
+        review: "This is awesome!"
+    });
+    const aBanana = new Fruit({
+        name: 'Banana',
+        rate: 8,
+        review: "This is awesome too!"
+    });
+    const aPerson = new personModel({
+        name: 'nhlong',
+        age: 25,
+        favouriteFruits: [aMango, aBanana]
+    });
+
+    aBanana.save();
+    aMango.save();
+    aPerson.save();
+    res.send('Add person & favourite fruit successfully!');
 });
 
 app.listen(3000, () => {
